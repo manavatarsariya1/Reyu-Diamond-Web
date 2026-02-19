@@ -1,5 +1,6 @@
 import React from 'react'
 import photo from "@/assets/landingpage/Diamond.png";
+import { motion } from "framer-motion"
 
 const Header = () => {
     return (
@@ -47,22 +48,42 @@ const Header = () => {
                         // maxHeight: 400,
                     }}
                 >
-                    <img
+
+                    <motion.img
                         src={photo}
                         alt="Diamond"
                         width={798}
                         height={594}
-                        className=' h-auto object-contain '
+                        className="h-auto object-contain"
+                        initial={{ y: -100, rotate: 0, opacity: 0 }}
+                        whileInView={{
+                            y: 0,
+                            rotate: [8, -8, 6, -6, 3, -3, 1, -1 , 0],
+                            opacity: 1
+                        }}
+                        transition={{
+                            y: {
+                                duration: 0.2,
+                                ease: "easeIn"   // falling effect
+                            },
+                            rotate: {
+                                duration: 3,
+                                ease: "easeOut"
+                            }
+                        }}
+                        viewport={{ once: false }}
                     />
-                     {/* <div className="absolute bottom-[-290px]   left-0 w-full h-80   bg-gradient-to-t from-[#2A2A2A] to-transparent pointer-events-none" />
+
+
+                    {/* <div className="absolute bottom-[-290px]   left-0 w-full h-80   bg-gradient-to-t from-[#2A2A2A] to-transparent pointer-events-none" />
                      <div className="absolute bottom-[-300px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" /> */}
-                     {/* <div className="absolute bottom-[-310px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" /> */}
-                     <div className="absolute bottom-[-320px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" />
-                     <div className="absolute bottom-[-330px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" />
-                     <div className="absolute bottom-[-340px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" />
-                     {/* <div className="absolute bottom-[-470px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" /> */}
-                     <div className="absolute bottom-[-470px]   left-0 w-full h-40 bg-[#2A2A2A] " />
-                     <div className="absolute bottom-[-630px]   left-0 w-full h-40 bg-[#2A2A2A] " />
+                    {/* <div className="absolute bottom-[-310px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" /> */}
+                    <div className="absolute bottom-[-320px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" />
+                    <div className="absolute bottom-[-330px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" />
+                    <div className="absolute bottom-[-340px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" />
+                    {/* <div className="absolute bottom-[-470px]   left-0 w-full h-70 bg-gradient-to-t    from-[#2A2A2A] to-transparent pointer-events-none" /> */}
+                    <div className="absolute bottom-[-470px]   left-0 w-full h-40 bg-[#2A2A2A] " />
+                    <div className="absolute bottom-[-630px]   left-0 w-full h-40 bg-[#2A2A2A] " />
                 </div>
             </div>
 
