@@ -1,5 +1,5 @@
-import React from 'react'
 import { motion } from 'framer-motion'
+import type {Variants} from "framer-motion"
 import certi1 from '../../assets/landingpage/certi-1.png'
 import certi2 from '../../assets/landingpage/certi-2.png'
 import certi3 from '../../assets/landingpage/certi-3.png'
@@ -32,20 +32,20 @@ const certifications: Certification[] = [
 // ── Variants ──────────────────────────────────────────────────────────────────
 
 // Header children stagger
-const headerContainer = {
+const headerContainer: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
 }
 
-const headerItem = {
+const headerItem: Variants = {
     hidden: { opacity: 0, y: 22 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as any } },
 }
 
 // Grid cards — each triggers individually on scroll
-const cardItem = {
+const cardItem: Variants = {
     hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1] as  any } },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

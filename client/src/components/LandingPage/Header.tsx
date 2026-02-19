@@ -1,4 +1,3 @@
-import React from 'react'
 import photo from "@/assets/landingpage/Diamond.png";
 import { motion } from "framer-motion"
 
@@ -64,11 +63,11 @@ const Header = () => {
                         transition={{
                             y: {
                                 duration: 0.2,
-                                ease: "easeIn"   // falling effect
+                                ease: "easeIn" as any   // falling effect
                             },
                             rotate: {
                                 duration: 3,
-                                ease: "easeOut"
+                                ease: "easeOut" as any
                             }
                         }}
                         viewport={{ once: false }}

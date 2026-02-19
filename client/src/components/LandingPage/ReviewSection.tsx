@@ -1,5 +1,4 @@
-import { Diamond } from 'lucide-react';
-import React from 'react'
+
 import diamond from "@/assets/diamond-svgrepo-com.svg";
 
 interface Testimonial {
@@ -63,7 +62,7 @@ const ReviewSection = () => {
      
       overflow-hidden
     '>
-      <style jsx>{`
+      <style >{`
         @keyframes scroll-left {
           0% {
             transform: translateX(0);

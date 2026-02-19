@@ -1,4 +1,3 @@
-import React from 'react'
 import SocialMediaCarousel from './SocialMediaCarousel'
 
 const SocialMediaSection = () => {

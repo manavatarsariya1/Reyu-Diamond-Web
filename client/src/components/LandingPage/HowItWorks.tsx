@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Upload, CheckSquare, Gem, Settings, Package } from 'lucide-react'
+import type {Variants} from "framer-motion"
+
 
 const steps = [
     {
@@ -43,40 +45,40 @@ const steps = [
 // ── Variants ──────────────────────────────────────────────────────────────────
 
 // Left panel slides in from left on scroll
-const leftPanel = {
+const leftPanel:Variants = {
     hidden: { opacity: 0, x: -50 },
-    show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 150, damping: 25, delay: 0.1 } },
+    show: { opacity: 1, x: 0, transition: { type: 'spring' as const, stiffness: 150, damping: 25, delay: 0.1 } },
 }
 
 // Title + description swap with blur
-const textSwap = {
+const textSwap: Variants = {
     hidden: { opacity: 0, y: 12, filter: 'blur(4px)' },
-    show:   { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.35, ease: [0.25, 1, 0.5, 1] } },
-    exit:   { opacity: 0, y: -10, filter: 'blur(4px)', transition: { duration: 0.2, ease: 'easeIn' } },
+    show:   { opacity: 1, y: 0,  filter: 'blur(0px)', transition: { duration: 0.35, ease: [0.25, 1, 0.5, 1] as any } },
+    exit:   { opacity: 0, y: -10, filter: 'blur(4px)', transition: { duration: 0.2, ease: 'easeIn' as any } },
 }
 
 // Mobile header fades up
-const mobileHeader = {
+const mobileHeader: Variants = {
     hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as any } },
 }
 
 // "How It Works" title
-const sectionTitle = {
+const sectionTitle: Variants = {
     hidden: { opacity: 0, y: 18 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut', delay: 0.2 } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' as any , delay: 0.2 } },
 }
 
 // Steps stagger container
-const stepsContainer = {
+const stepsContainer: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.09, delayChildren: 0.3 } },
 }
 
 // Each step slides from right
-const stepItem = {
+const stepItem: Variants = {
     hidden: { opacity: 0, x: 36 },
-    show: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 200, damping: 24 } },
+    show: { opacity: 1, x: 0, transition: { type: 'spring' as const, stiffness: 200, damping: 24 } },
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -249,7 +251,7 @@ const HowItWorks = () => {
                                         }}
                                         whileHover={{ x: isActive ? 4 : 3 }}
                                         whileTap={{ scale: 0.98 }}
-                                        transition={{ duration: 0.25, ease: 'easeOut' }}
+                                        transition={{ duration: 0.25, ease: 'easeOut' as any }}
                                         className="flex items-center gap-3 sm:gap-4 px-4 sm:px-5 py-3 sm:py-4 cursor-pointer h-[80px] sm:h-[90px] rounded-[16px] w-full lg:w-[523px] border-[4px]"
                                     >
                                         {/* Icon */}
@@ -266,7 +268,7 @@ const HowItWorks = () => {
                                                     rotate: isActive ? 12 : 0,
                                                     scale: isActive ? 1.2 : 1,
                                                 }}
-                                                transition={{ type: 'spring', stiffness: 320, damping: 18 }}
+                                                transition={{ type: 'spring' as const, stiffness: 320, damping: 18 }}
                                             >
                                                 <Icon size={16} color="#CEA574" />
                                             </motion.div>
@@ -291,7 +293,7 @@ const HowItWorks = () => {
                                             initial={{ opacity: 0, height: 0 }}
                                             animate={{ opacity: 1, height: 'auto' }}
                                             exit={{ opacity: 0, height: 0 }}
-                                            transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+                                            transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] as any }}
                                             className="lg:hidden overflow-hidden pl-10 mt-2 mb-1"
                                         >
                                             <motion.div

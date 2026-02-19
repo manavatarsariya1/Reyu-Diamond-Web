@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type {Variants} from "framer-motion"
 import shape1 from "../../assets/landingpage/shape-1.png"
 import shape2 from "../../assets/landingpage/shape-2.png"
 import shape3 from "../../assets/landingpage/shape-3.png"
@@ -29,7 +30,7 @@ const shapes = [
 // ── Framer Motion variants ────────────────────────────────────────────────────
 
 // Container: staggers children one by one
-const gridContainer = {
+const gridContainer:Variants = {
     hidden: {},
     show: {
         transition: { staggerChildren: 0.06, delayChildren: 0.2 },
@@ -37,21 +38,21 @@ const gridContainer = {
 }
 
 // Each shape card fades + slides up
-const cardVariant = {
+const cardVariant: Variants = {
     hidden: { opacity: 0, y: 28, scale: 0.9 },
     show:   { opacity: 1, y: 0,  scale: 1,
-        transition: { type: 'spring', stiffness: 260, damping: 22 } },
+        transition: { type: 'spring' as const, stiffness: 260, damping: 22 } },
 }
 
 // Text block slides in from right
-const textVariant = {
+const textVariant:Variants = {
     hidden: { opacity: 0, x: 48 },
     show:   { opacity: 1, x: 0,
-        transition: { type: 'spring', stiffness: 200, damping: 26, delay: 0.3 } },
+        transition: { type: 'spring' as const, stiffness: 200, damping: 26, delay: 0.3 } },
 }
 
 // Label overlay fades in
-const labelVariant = {
+const labelVariant:Variants = {
     hidden: { opacity: 0 },
     show:   { opacity: 1, transition: { duration: 0.18 } },
 }
@@ -94,7 +95,7 @@ const DiamondShapesDetails = () => {
                     <motion.div
                         key={shape.id}
                         variants={cardVariant}
-                        whileHover={{ scale: 1.07, transition: { type: 'spring', stiffness: 350, damping: 20 } }}
+                        whileHover={{ scale: 1.07, transition: { type: 'spring' as const, stiffness: 350, damping: 20 } }}
                         whileTap={{ scale: 0.96 }}
                         onHoverStart={() => setHoveredId(shape.id)}
                         onHoverEnd={() => setHoveredId(null)}
@@ -116,7 +117,7 @@ const DiamondShapesDetails = () => {
                             alt={shape.label}
                             className='w-[90%] h-[90%] object-contain'
                             animate={{ scale: hoveredId === shape.id ? 1.1 : 1 }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+                            transition={{ type: 'spring' as const, stiffness: 300, damping: 22 }}
                         />
 
                         {/* Label overlay — AnimatePresence for smooth mount/unmount */}
@@ -189,7 +190,7 @@ const DiamondShapesDetails = () => {
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.5, type: 'spring', stiffness: 180, damping: 22 }}
+                    transition={{ delay: 0.5, type: 'spring' as const, stiffness: 180, damping: 22 }}
                     className='
                         font-playfair font-normal leading-tight
                         text-[28px] sm:text-[36px] md:text-[44px]

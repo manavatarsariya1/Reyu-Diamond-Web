@@ -1,9 +1,8 @@
-import React from 'react'
-import DiamondDetailCard from './DiamondDetailCard'
+import DiamondDetailCard, { type DiamondCardProps } from './DiamondDetailCard'
 import image1 from "../../assets/landingpage/diamondetail-image1.png"
 import image2 from "../../assets/landingpage/diamondetail-image2.png"
 
-const cards: DiamondCard[] = [
+const cards: DiamondCardProps[] = [
     {
         id: 1,
         title: "CVD Diamonds",

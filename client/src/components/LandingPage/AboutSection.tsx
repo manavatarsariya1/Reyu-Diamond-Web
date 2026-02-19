@@ -1,6 +1,7 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import ImageSlider from './ImageSlider'
+import type { Variants } from "framer-motion"
+
 
 // ── Shared viewport config ────────────────────────────────────────────────────
 const vp = { once: true, amount: 0.25 }
@@ -8,43 +9,43 @@ const vp = { once: true, amount: 0.25 }
 // ── Variants ──────────────────────────────────────────────────────────────────
 
 // Slider — opacity only, no x/y on heavy component = GPU-friendly, no lag
-const sliderVariant = {
+const sliderVariant: Variants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
-        transition: { duration: 0.6, ease: 'easeOut' },
+        transition: { duration: 0.6, ease: "easeInOut" as any },
     },
 }
 
 // Heading slides up
-const headingVariant = {
+const headingVariant: Variants = {
     hidden: { opacity: 0, y: 24 },
     show: {
         opacity: 1, y: 0,
-        transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1], delay: 0.15 },
+        transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] as any, delay: 0.15 },
     },
 }
 
 // Paragraphs stagger in one by one
-const paragraphContainer = {
+const paragraphContainer: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.12, delayChildren: 0.25 } },
 }
 
-const paragraphVariant = {
+const paragraphVariant: Variants = {
     hidden: { opacity: 0, y: 18 },
     show: {
         opacity: 1, y: 0,
-        transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1] },
+        transition: { duration: 0.55, ease: [0.25, 1, 0.5, 1] as any },
     },
 }
 
 // Stats — stagger via custom index
-const statVariant = {
+const statVariant: Variants = {
     hidden: { opacity: 0, y: 14 },
     show: (i: number) => ({
         opacity: 1, y: 0,
-        transition: { delay: 0.4 + i * 0.1, duration: 0.45, ease: 'easeOut' },
+        transition: { delay: 0.4 + i * 0.1, duration: 0.45, ease: 'easeOut' as any },
     }),
 }
 

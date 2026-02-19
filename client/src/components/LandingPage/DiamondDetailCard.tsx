@@ -1,6 +1,6 @@
-import React from "react";
 
-interface DiamondCardProps {
+
+export interface DiamondCardProps {
     image?: string;
     title?: string;
     subtitle?: string;
